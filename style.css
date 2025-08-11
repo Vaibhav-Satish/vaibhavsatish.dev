@@ -1,59 +1,68 @@
+/* ===== General Page Styles ===== */
 body {
-  background-color: #000;
-  color: #00ff9f;
-  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
-  padding: 0 10px; /* Padding for small screens */
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(120deg, #001a12, #003322, #001a12);
+  background-size: 200% 200%;
+  animation: waveBackground 15s ease infinite;
+  color: #00ff9f;
+  padding: 0 15px;
   box-sizing: border-box;
+  transition: background-position 0.1s ease-out;
 }
 
+/* ===== Container ===== */
 .container {
   text-align: center;
-  padding: 20px;
   max-width: 800px;
   width: 100%;
 }
 
-h1 {
+/* ===== Prompt (H1) ===== */
+.prompt {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #00ff9f;
-  word-wrap: break-word;
+  text-shadow: 0 0 2px #00ff9f;
+  animation: blink-caret 1s step-end infinite;
 }
 
+/* ===== Typewriter Text ===== */
 .typewriter {
   overflow: hidden;
-  border-right: .15em solid #00ff9f;
+  border-right: 0.15em solid #00ff9f;
   white-space: nowrap;
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-  max-width: 100%;
+  animation: typing 2s linear, blink-caret 0.75s step-end infinite;
   font-size: 1.2rem;
+  display: inline-block;
+  text-shadow: 0 0 1px #00ff9f;
 }
 
-p {
+/* ===== Subtext ===== */
+.subtext {
   font-size: 1rem;
-  line-height: 1.5;
+  margin-top: 1rem;
+  color: #99ffdd;
+  text-shadow: 0 0 1px #00ff9f;
 }
 
-/* Responsive styles */
+/* ===== Mobile Responsiveness ===== */
 @media (max-width: 600px) {
-  h1 {
+  .prompt {
     font-size: 1.5rem;
   }
-
   .typewriter {
     font-size: 1rem;
   }
-
-  p {
+  .subtext {
     font-size: 0.9rem;
   }
 }
 
+/* ===== Keyframes ===== */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -62,4 +71,10 @@ p {
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #00ff9f; }
+}
+
+@keyframes waveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
